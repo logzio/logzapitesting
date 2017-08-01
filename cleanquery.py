@@ -7,7 +7,7 @@ import json
 
 url='https://api.logz.io/v1/search'
 headers = {
-  'X-USER-TOKEN': 'a9bab593-d2ec-409a-b776-3ca9cf7d8ede'
+    X-USER-TOKEN': 'API-USER-KEY-HERE'
 }
 payload = {
   "size": 0,
@@ -44,17 +44,7 @@ for i in range(len(results['aggregations']['byType']['buckets'])):
    results['aggregations']['byType']['buckets'][i]['doc_count']) + ",\"Severity\":3,\"Classification\":\"Potential DDos attack\",\"Query_Owner\":\"CGI\",\"Query_Verison\":\"v1\",\"key\":\"5002 DDoS Attack Detected: Scan or Flood\"}" + "\n"
 print postdata
 url2='http://listener.logz.io:8070'
-payload={'token':'HObSWdRzQtiIJezVvqgbqOdmImCvFCpO'}
+payload={'token':'COLLECTOR-TOKEN-HERE'}
 r2 = requests.post(url=url2,data=postdata,params=payload)
 print(r2.status_code)
 print(r.text)
-
-   #+ "\" }\n" 
-'''
-| ""3"" as Severity 
-| ""Potential DDoS attack"" as Classification
-| ""DDoS Attack"" as Message
-| ""CGI"" as Query_Owner 
-| ""v1"" as Query_Version 
-| ""5002 DDoS Attack Detected: Scan or Flood"" as key"
-'''
